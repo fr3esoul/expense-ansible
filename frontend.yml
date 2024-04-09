@@ -6,29 +6,22 @@
       ansible.builtin.dnf:
         name: nginx
         state: present
-
     - name: Copy Expense Conf File
       ansible.builtin.copy:
         src: expense.conf
         dest: /etc/nginx/default.d/expense.conf
-
     -  name: Clean Old nginx dir
        ansible.builtin.file:
          path: /usr/share/nginx/html
          state: absent
-
     - name: Creating new nginx dir
       ansible.builtin.file:
         path: /usr/share/nginx/html
         state: directory
-
-
-
     - name: Download and extract frontend content
       ansible.builtin.unarchive:
         src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
         dest: /usr/share/nginx/html
-
     - name: Start nginx service
       ansible.builtin.systemd:
         name: nginx
