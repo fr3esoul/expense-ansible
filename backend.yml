@@ -30,7 +30,7 @@
     - name: Creating new directory
       ansible.builtin.file:
         path: /app
-        state: present
+        state: directory
 
     - name: Downloading and Extracting the Backend Content
       ansible.builtin.unarchive:
