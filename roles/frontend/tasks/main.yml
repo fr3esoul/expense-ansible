@@ -2,13 +2,14 @@
   ansible.builtin.dnf:
     name: nginx
     state: present
+
 - name: Copy Expense Conf File
   ansible.builtin.copy:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
 - name: Import Common Role- App-prerequisites
-  ansible.builtin.import:
+  ansible.builtin.import_role:
     name: common
     tasks_from: app-prereq
   vars:
