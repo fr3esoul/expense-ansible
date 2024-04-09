@@ -23,12 +23,12 @@
         name: expense
 
     - name: Removing old app content
-      ansible.builtin.path:
+      ansible.builtin.file:
         path: /app
         state: absent
 
     - name: Creating new directory
-      ansible.builtin.path:
+      ansible.builtin.file:
         path: /app
         state: present
 
