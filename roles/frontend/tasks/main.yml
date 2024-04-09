@@ -4,7 +4,7 @@
     state: present
 
 - name: Copy Expense Conf File
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
