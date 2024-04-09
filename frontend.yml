@@ -20,7 +20,7 @@
     - name: Creating new nginx dir
       ansible.builtin.file:
         path: /usr/share/nginx/html
-        state: present
+        state: directory
 
 
 
