@@ -20,7 +20,7 @@
         state: directory
     - name: Download and extract frontend content
       ansible.builtin.unarchive:
-        src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+        src:  https://expense-artifacts.s3.amazonaws.com/frontend.zip
         dest: /usr/share/nginx/html
     - name: Start nginx service
       ansible.builtin.systemd:
