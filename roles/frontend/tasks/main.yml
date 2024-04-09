@@ -6,19 +6,14 @@
   ansible.builtin.copy:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
--  name: Clean Old nginx dir
-   ansible.builtin.file:
-     path: /usr/share/nginx/html
-     state: absent
-- name: Creating new nginx dir
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-- name: Download and extract frontend content
-  ansible.builtin.unarchive:
-    src:  https://expense-artifacts.s3.amazonaws.com/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+
+- name: Import Common Role- App-prerequisites
+  ansible.builtin.import:
+    name: common
+    tasks_from: app-prereq
+  vars:
+    app_dir: /usr/share/nginx/html
+    component: frontend
 
 - name: Start nginx service
   ansible.builtin.systemd:
