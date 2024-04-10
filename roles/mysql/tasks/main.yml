@@ -18,4 +18,4 @@
     enabled: yes
 
 - name: Set MySQL Password
-  ansible.builtin.shell: mysql_secure_installation --set-root-pass{{ lookup('amazon.aws.aws_ssm','mysql.{env}.DB_PASS',region='us-east-1' ) }}
+  ansible.builtin.shell: mysql_secure_installation --set-root-pass{{ lookup('amazon.aws.aws_ssm','mysql.{{env}}.DB_PASS',region='us-east-1' ) }}
