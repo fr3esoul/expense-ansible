@@ -22,4 +22,12 @@
     state: restarted
     enabled: yes
 
+- name:  Install filebeat
+  ansible.builtin.dnf:
+     name: filebeat
+     state: installed
 
+- name: Import ELK Role
+  ansible.builtin.import_role:
+    name: elk
+    tasks_from: filebeat
