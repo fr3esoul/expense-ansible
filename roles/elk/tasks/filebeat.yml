@@ -3,4 +3,4 @@
   ansible.builtin.template:
      src: elastic.repo
      dest: /etc/yum.repos.d/elastic.repo
-
+     remote_src: yes
