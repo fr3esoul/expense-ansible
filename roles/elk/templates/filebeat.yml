@@ -138,8 +138,8 @@ setup.kibana:
 
 #---------------------------- Elasticsearch Output ----------------------------
 #output.elasticsearch:
-  # Array of hosts to connect to.
-  #hosts: ["172.31.21.221:9200"]
+# # Array of hosts to connect to.
+# #hosts: ["172.31.21.221:9200"]
 
   # Performance preset - one of "balanced", "throughput", "scale",
   # "latency", or "custom".
@@ -156,7 +156,7 @@ setup.kibana:
   # ------------------------------ Logstash Output -------------------------------
 output.logstash:
   # The Logstash hosts
-  hosts: ["172.31.21.221:5044"]
+  hosts: ["172.31.29.71:5044"]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications
