@@ -22,14 +22,14 @@ filebeat.inputs:
   - type: filestream
 
     # Unique ID among all inputs, an ID is required.
-    id: {{ component }}
+    id: frontend
 
     # Change to true to enable this input configuration.
     enabled: true
 
     # Paths that should be crawled and fetched. Glob based paths.
     paths:
-        - {{ log_file }}
+      - /var/log/nginx/access.log
 
       #- c:\programdata\elasticsearch\logs\*
 
@@ -141,19 +141,19 @@ setup.kibana:
 # # Array of hosts to connect to.
 # #hosts: ["172.31.21.221:9200"]
 
-  # Performance preset - one of "balanced", "throughput", "scale",
-  # "latency", or "custom".
-  #preset: balanced
+# Performance preset - one of "balanced", "throughput", "scale",
+# "latency", or "custom".
+#preset: balanced
 
-  # Protocol - either `http` (default) or `https`.
-  #protocol: "https"
+# Protocol - either `http` (default) or `https`.
+#protocol: "https"
 
-  # Authentication credentials - either API key or username/password.
-  #api_key: "id:api_key"
-  #username: "elastic"
-  #password: "cme"
+# Authentication credentials - either API key or username/password.
+#api_key: "id:api_key"
+#username: "elastic"
+#password: "cme"
 
-  # ------------------------------ Logstash Output -------------------------------
+# ------------------------------ Logstash Output -------------------------------
 output.logstash:
   # The Logstash hosts
   hosts: ["172.31.29.71:5044"]
