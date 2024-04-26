@@ -22,14 +22,14 @@ filebeat.inputs:
   - type: filestream
 
     # Unique ID among all inputs, an ID is required.
-    id: frontend
+    id: {{ component }}
 
     # Change to true to enable this input configuration.
     enabled: true
 
     # Paths that should be crawled and fetched. Glob based paths.
     paths:
-      - /var/log/nginx/access.log
+      - {{ log_file }}
 
       #- c:\programdata\elasticsearch\logs\*
 
