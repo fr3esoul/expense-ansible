@@ -6,7 +6,7 @@
 
 - name: Restart rsyslog service
   ansible.builtin.systemd:
-    name: ryslog
+    name: rsyslog
     state: restarted
   when: is_rsyslog_needed
 
