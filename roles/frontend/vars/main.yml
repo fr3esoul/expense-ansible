@@ -1,2 +1,3 @@
 component: frontend
 log_file: /var/log/nginx/access.log
+is_rsyslog_needed: no
