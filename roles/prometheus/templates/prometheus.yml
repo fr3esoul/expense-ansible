@@ -30,6 +30,6 @@ scrape_configs:
 
   - job_name: ec2-nodes
     static_configs:
-      - targets: ["172.31.87.126:9100"]
+      - targets: [ "172.31.87.126:9100" ] #node exporter on frontend instance running on port no 9100
 
 
