@@ -90,7 +90,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adlam69fn0ruoc "
+            "uid": "adlam69fn0ruoc"
           },
           "editorMode": "code",
           "expr": "up{name=\"{{component}}-{{env}}\"}",
@@ -108,7 +108,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d5b266f3-45de-4d6c-8122-296c04060162"
+        "uid": "adlam69fn0ruoc"
       },
       "fieldConfig": {
         "defaults": {
@@ -187,7 +187,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d5b266f3-45de-4d6c-8122-296c04060162"
+            "uid": "adlam69fn0ruoc"
           },
           "editorMode": "code",
           "expr": "(node_memory_MemFree_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Cached_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Buffers_bytes{name=\"{{component}}-{{env}}\"}) / node_memory_MemTotal_bytes{name=\"{{component}}-{{env}}\"} * 100",
