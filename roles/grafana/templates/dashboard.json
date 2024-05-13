@@ -20,6 +20,7 @@
   "graphTooltip": 0,
   "id": 1,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -49,12 +50,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": null
               },
               {
-                "color": "red",
-                "value": 80
+                "color": "green",
+                "value": 1
               }
             ]
           },
@@ -64,7 +65,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 9,
+        "w": 3,
         "x": 0,
         "y": 0
       },
@@ -81,11 +82,10 @@
           "fields": "",
           "values": false
         },
-        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.2.1",
       "targets": [
         {
           "datasource": {
@@ -93,11 +93,13 @@
             "uid": "adlam69fn0ruoc"
           },
           "editorMode": "code",
-          "expr": "up{name=\"{{component}}-{{env}}\"}",
+          "expr": "up{name=\"{{env}}-{{component}}\"}",
           "instant": false,
-          "legendFormat": "{{instance}}",
-          "range": true,
-          "refId": "A"
+        {% raw %}
+        "legendFormat": "{{instance}}",
+        {% endraw %}
+        "range": true,
+        "refId": "A"
         }
       ],
       "title": "UP",
@@ -106,25 +108,56 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "adlam69fn0ruoc"
+        "uid": "d5b266f3-45de-4d6c-8122-296c04060162"
       },
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
           "mappings": [],
           "thresholds": {
-            "mode": "percentage",
+            "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
               },
               {
-                "color": "orange",
-                "value": 70
-              },
-              {
                 "color": "red",
-                "value": 85
+                "value": 80
               }
             ]
           }
@@ -133,59 +166,56 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 10,
-        "x": 9,
+        "w": 9,
+        "x": 3,
         "y": 0
       },
       "id": 2,
       "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": false,
-        "sizing": "auto"
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adlam69fn0ruoc"
+            "uid": "d5b266f3-45de-4d6c-8122-296c04060162"
           },
           "editorMode": "code",
-          "expr": "(node_memory_MemFree_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Cached_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Buffers_bytes{name=\"{{component}}-{{env}}\"}) / node_memory_MemTotal_bytes{name=\"{{component}}-{{env}}\"} * 100",
+          "expr": "(node_memory_MemFree_bytes{name=\"{{env}}-{{component}}\"} + node_memory_Cached_bytes{name=\"{{env}}-{{component}}\"} + node_memory_Buffers_bytes{name=\"{{env}}-{{component}}\"}) / node_memory_MemTotal_bytes{name=\"{{env}}-{{component}}\"} * 100",
           "instant": false,
-          "legendFormat": "{{instance}}",
-          "range": true,
-          "refId": "A"
+        {% raw %}
+        "legendFormat": "{{name}}",
+        {% endraw %}
+        "range": true,
+        "refId": "A"
         }
       ],
       "title": "Memory Used %",
-      "type": "gauge"
+      "type": "timeseries"
     }
   ],
   "refresh": "",
-  "schemaVersion": 39,
+  "schemaVersion": 38,
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "2024-05-10T08:36:32.217Z",
-    "to": "2024-05-10T14:36:32.217Z"
+    "from": "now-15m",
+    "to": "now"
   },
   "timepicker": {},
-  "timezone": "browser",
-  "title": "frontend",
-  "uid": "adlamvelexfr4c",
-  "version": 3,
+  "timezone": "",
+  "title": "{{component}}",
+  "version": 4,
   "weekStart": ""
 }
