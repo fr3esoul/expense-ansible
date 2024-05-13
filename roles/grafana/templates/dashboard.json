@@ -90,10 +90,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "adlam69fn0ruoc"
+            "uid": "adlam69fn0ruoc "
           },
           "editorMode": "code",
-          "expr": "up{name=\"{{env}}-{{component}}\"}",
+          "expr": "up{name=\"{{component}}-{{env}}\"}",
           "instant": false,
         {% raw %}
         "legendFormat": "{{instance}}",
@@ -190,7 +190,7 @@
             "uid": "d5b266f3-45de-4d6c-8122-296c04060162"
           },
           "editorMode": "code",
-          "expr": "(node_memory_MemFree_bytes{name=\"{{env}}-{{component}}\"} + node_memory_Cached_bytes{name=\"{{env}}-{{component}}\"} + node_memory_Buffers_bytes{name=\"{{env}}-{{component}}\"}) / node_memory_MemTotal_bytes{name=\"{{env}}-{{component}}\"} * 100",
+          "expr": "(node_memory_MemFree_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Cached_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Buffers_bytes{name=\"{{component}}-{{env}}\"}) / node_memory_MemTotal_bytes{name=\"{{component}}-{{env}}\"} * 100",
           "instant": false,
         {% raw %}
         "legendFormat": "{{name}}",
@@ -215,7 +215,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "{{component}}",
+  "title": "{{env}}",
   "version": 4,
   "weekStart": ""
 }
