@@ -1,0 +1,10 @@
+groups:
+  - name: node-exporter
+    rules:
+      - alert: Instance Down
+        expr: up < 0
+        for: 1m
+        labels:
+          severity: Critical
+        annotations:
+          summary: Instance Down Alert
