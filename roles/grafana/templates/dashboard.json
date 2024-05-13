@@ -96,7 +96,7 @@
           "expr": "up{name=\"{{component}}-{{env}}\"}",
           "instant": false,
         {% raw %}
-        "legendFormat": "{{instance}}",
+         "legendFormat": "{{instance}}",
         {% endraw %}
         "range": true,
         "refId": "A"
@@ -193,7 +193,7 @@
           "expr": "(node_memory_MemFree_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Cached_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Buffers_bytes{name=\"{{component}}-{{env}}\"}) / node_memory_MemTotal_bytes{name=\"{{component}}-{{env}}\"} * 100",
           "instant": false,
         {% raw %}
-        "legendFormat": "{{name}}",
+         "legendFormat": "{{name}}",
         {% endraw %}
         "range": true,
         "refId": "A"
@@ -215,7 +215,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "{{env}}",
+  "title": "frontend",
   "version": 4,
   "weekStart": ""
 }
