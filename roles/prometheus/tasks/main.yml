@@ -6,7 +6,7 @@
 - name: Copy Alert Rules File
   ansible.builtin.template:
     src: alert-rules.yml
-    dest: /opt/prometheus/prometheus.yml
+    dest: /opt/prometheus/alert-rules.yml
 
 - name: Restart Prometheus
   ansible.builtin.systemd:
