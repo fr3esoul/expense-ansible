@@ -95,9 +95,9 @@
           "editorMode": "code",
           "expr": "up{name=\"{{component}}-{{env}}\"}",
           "instant": false,
-          {% raw %},
+        {% raw %}
             "legendFormat": "{{instance}}",
-          {% endraw %},
+        {% endraw %}
           "range": true,
           "refId": "A"
         }
@@ -193,9 +193,9 @@
           "editorMode": "code",
           "expr": "(node_memory_MemFree_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Cached_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Buffers_bytes{name=\"{{component}}-{{env}}\"}) / node_memory_MemTotal_bytes{name=\"{{component}}-{{env}}\"} * 100",
           "instant": false,
-          {% raw %},
+        {% raw %}
            "legendFormat": "{{name}}",
-          {% endraw %},
+        {% endraw %}
           "range": true,
           "refId": "A"
         }
