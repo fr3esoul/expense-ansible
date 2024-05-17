@@ -95,9 +95,7 @@
           "editorMode": "code",
           "expr": "up{name=\"{{component}}-{{env}}\"}",
           "instant": false,
-          {% raw %}
-           "legendFormat": "{{name}}",
-          {% endraw %}
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -193,9 +191,7 @@
           "editorMode": "code",
           "expr": "(node_memory_MemFree_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Cached_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Buffers_bytes{name=\"{{component}}-{{env}}\"}) / node_memory_MemTotal_bytes{name=\"{{component}}-{{env}}\"} * 100",
           "instant": false,
-          {% raw %}
-           "legendFormat": "{{name}}",
-          {% endraw %}
+          "legendFormat": "{{name}}",
           "range": true,
           "refId": "A"
         }
@@ -211,8 +207,8 @@
     "list": []
   },
   "time": {
-    "from": "now-15m",
-    "to": "now"
+    "from": "2024-05-17T13:52:52.979Z",
+    "to": "2024-05-17T15:43:21.254Z"
   },
   "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
