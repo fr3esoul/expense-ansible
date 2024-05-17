@@ -22,7 +22,6 @@
     state: restarted
     enabled: yes
 
-
 - name: Import ELK Role
   ansible.builtin.import_role:
     name: elk
