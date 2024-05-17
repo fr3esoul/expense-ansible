@@ -30,7 +30,7 @@
 - name: Import Prometheus Role-Node Exporter
   ansible.builtin.import_role:
     name: prometheus
-    tasks_from: node-exporter
+    tasks_from: nodeexporter
 
 - name: Import Grafana Dashboard Role
   ansible.builtin.import_role:
