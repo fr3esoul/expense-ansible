@@ -14,3 +14,8 @@
     name: nodeexporter
     start: restarted
     enabled: yes
+    daemon-reload: yes
+
+- name: Import Grafana Dashboard Role
+  ansible.builtin.import_role:
+    name: grafana
