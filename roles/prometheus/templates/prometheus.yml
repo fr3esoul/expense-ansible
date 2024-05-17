@@ -22,6 +22,17 @@ scrape_configs:
     static_configs:
       - targets: ["localhost:9090"]
   - job_name: ec2-nodes
-    static_configs:
-      - targets: ["172.31.87.126:9100"]
+    relabel_configs:
+      - source_labels: [ __meta_ec2_instance_id ]
+        target_label: instance_id
+      - source_labels: [ __meta_ec2_private_ip ]
+        target_label: private_ip
+      - source_labels: [ __meta_ec2_tag_Name ]
+        target_label: name
+    ec2_sd_configs:
+      - region: us-east-1
+        port: 9100
+        filters:
+          - name: "tag:Monitor"
+            values: [ "true" ]
 
