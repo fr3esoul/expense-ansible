@@ -12,7 +12,7 @@
 - name: Start Node Exporter
   ansible.builtin.systemd:
     name: nodeexporter
-    start: restarted
+    state: restarted
     enabled: yes
     daemon-reload: yes
 
