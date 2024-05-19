@@ -45,7 +45,7 @@
 - name:  Upload Alert File to S3
   community.aws.s3_sync:
      bucket: kgs-prometheus-alert-rules
-     dest: /tmp/alert-rules.yml
+     file_root: /tmp/alert-rules.yml
 
 
 
