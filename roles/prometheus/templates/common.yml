@@ -1,5 +1,5 @@
 groups:
-  - name: {{component}}-{{env}}
+  - name: frontend-dev
     rules:
       - alert: InstanceDown
         expr: up < 1
