@@ -11,8 +11,8 @@
 ##
 - name: Copy Alert Rules
   ansible.builtin.template:
-    src: "{{component}}-{{env}}.yml"
-    dest: /opt/prometheus/alert-rules/*.yml
+    src: frontend-dev.yml
+    dest: /opt/prometheus/alert-rules/frontend-dev.yml
 
 
 - name: Reload Prometheus
