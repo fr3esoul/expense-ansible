@@ -2,6 +2,16 @@ groups:
   - name: {{component}}-{{env}}
     rules:
       - alert: CPUUsageAlert
+        expr: avg by (instance)(100 - (rate(node_cpu_seconds_total{mode="ideal"}[5m]) * 100))  > 90
+        for: 1m
+        labels:
+          severity: critical
+          component: {{component}}
+          env: {{env}}
+        annotations:
+          summary: Critical | CPU Usage  Alert
+
+      - alert: CPUUsageAlert
         expr: avg by (instance)(100 - (rate(node_cpu_seconds_total{mode="ideal"}[5m]) * 100))  > 70
         for: 1m
         labels:
@@ -9,4 +19,24 @@ groups:
           component: {{component}}
           env: {{env}}
         annotations:
-          summary: Instance Down Alert
+          summary: Warning | CPU Usage  Alert
+
+      - alert: MemoryUsageAlert
+        expr: (node_memory_MemFree_bytes + node_memory_Cached_bytes + node_memory_Buffers_bytes) / node_memory_MemTotal_bytes * 100 > 90
+        for: 1m
+        labels:
+          severity: critical
+          component: {{component}}
+          env: {{env}}
+        annotations:
+          summary: Critical | Memory Usage  Alert
+
+      - alert: MemoryUsageAlert
+        expr:  (node_memory_MemFree_bytes + node_memory_Cached_bytes + node_memory_Buffers_bytes) / node_memory_MemTotal_bytes * 100 > 70
+        for: 1m
+        labels:
+          severity: warning
+          component: {{component}}
+          env: {{env}}
+        annotations:
+          summary: Warning | Memory Usage  Alert
