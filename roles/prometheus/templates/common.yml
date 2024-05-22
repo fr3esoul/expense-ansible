@@ -1,5 +1,5 @@
 groups:
-  - name: node_exporter
+  - name: {{component}}-{{env}}
     rules:
       - alert: InstanceDown
         expr: up < 1

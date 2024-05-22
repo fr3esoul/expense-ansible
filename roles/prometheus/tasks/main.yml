@@ -8,8 +8,6 @@
     src: common.yml
     dest: /opt/prometheus/alert-rules/common.yml
 
-
-
 - name: Reload Prometheus
   ansible.builtin.shell: kill -1 $(ps -ef | grep /opt/prometheus/prometheus | grep -v grep | awk '{print $2}')
 
