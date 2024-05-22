@@ -12,7 +12,7 @@
 - name: Copy Alert Rules
   ansible.builtin.template:
     src: {{component}}-{{env}}.yml
-    dest: /opt/prometheus/alert-rules/{{component}}-{{env}
+    dest: /opt/prometheus/alert-rules/{{component}}-{{env}.yml
 
 
 - name: Reload Prometheus
