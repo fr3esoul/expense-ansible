@@ -8,11 +8,6 @@
     src: common.yml
     dest: /opt/prometheus/alert-rules/common.yml
 
-##
-- name: Copy Alert Rules
-  ansible.builtin.template:
-    src: frontend-dev.yml
-    dest: /opt/prometheus/alert-rules/frontend-dev.yml
 
 
 - name: Reload Prometheus
