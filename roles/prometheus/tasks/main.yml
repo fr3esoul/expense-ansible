@@ -8,6 +8,13 @@
     src: common.yml
     dest: /opt/prometheus/alert-rules/common.yml
 
+##
+- name: Copy Alert Rules
+  ansible.builtin.template:
+    src: {{component}}-{{env}}.yml
+    dest: /opt/prometheus/alert-rules/{{component}}-{{env}
+
+
 - name: Reload Prometheus
   ansible.builtin.shell: kill -1 $(ps -ef | grep /opt/prometheus/prometheus | grep -v grep | awk '{print $2}')
 
