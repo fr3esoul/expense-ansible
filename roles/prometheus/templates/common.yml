@@ -1,5 +1,5 @@
 groups:
-  - name: frontend-dev
+  - name: node_exporter
     rules:
       - alert: InstanceDown
         expr: up < 1
