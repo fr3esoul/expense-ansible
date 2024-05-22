@@ -44,10 +44,11 @@
 
 #
 - name:  Upload Alert File to S3
-  amazon.aws.s3_sync:
+  amazon.aws.s3_object:
      bucket: kgs-prometheus-alert-rules
      object: "{{component}}-{{env}}.yml"
      src: /tmp/{{component}}-{{env}}.yml
+     mode: put
 
 
 
