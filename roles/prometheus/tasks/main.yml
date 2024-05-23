@@ -19,7 +19,7 @@
     bucket: kgs-prometheus-alert-rules
     mode: get
     object: "{{item}}"
-    dest: /opt/prometheus/alert-rules/
+    dest: /opt/prometheus/alert-rules/{{item}}
   loop: "{{out.s3_keys}}"
 
 - name: Reload Prometheus
