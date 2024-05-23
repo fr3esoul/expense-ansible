@@ -1,4 +1,0 @@
-- name: Generate Alert YAML File
-  ansible.builtin.template:
-    src: alert-rules.yml
-    dest: /tmp/{{component}}-{{env}}.yml

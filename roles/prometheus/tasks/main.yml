@@ -8,11 +8,19 @@
     src: common.yml
     dest: /opt/prometheus/alert-rules/common.yml
 
+- name: List all files in Bucket
+  amazon.aws.s3_object:
+     bucket: kgs-prometheus-alert-rules
+     mode: list
+  register: out
 
-- name: Copy Alert Rules
-  ansible.builtin.template:
-    src: alert-rules-update.yml
-    dest: /opt/prometheus/alert-rules/alert-rules-update.yml
+- name: Download all the objects from s3 Bucket  Having Alert Rules
+  amazon.aws.s3_object:
+    bucket: kgs-prometheus-alert-rules
+    mode: get
+    object: "{{item}}"
+    dest: /opt/prometheus/alert-rules/
+  loop: "{{out.s3_keys}}"
 
 - name: Reload Prometheus
   ansible.builtin.shell: kill -1 $(ps -ef | grep /opt/prometheus/prometheus | grep -v grep | awk '{print $2}')
@@ -22,6 +30,8 @@
   ansible.builtin.template:
     src: alertmanager.yml
     dest: /opt/alertmanager/alertmanager.yml
+
+
 
 - name: Reload AlertManager
   ansible.builtin.shell: kill -1 $(ps -ef | grep /opt/alertmanager/alertmanager | grep -v grep | awk '{print $2}')
