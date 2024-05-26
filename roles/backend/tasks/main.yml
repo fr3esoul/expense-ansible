@@ -49,3 +49,14 @@
     enabled: yes
     daemon-reload: yes
 
+- name: Import Prometheus Role-Node Exporter
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node-exporter
+
+
+- name: Import Grafana Dashboard
+  ansible.builtin.import_role:
+    name: grafana
+
+
