@@ -205,20 +205,18 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 39,
+  "schemaVersion": 38,
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-60m",
+    "from": "now-10m",
     "to": "now"
   },
-  "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
-  "timezone": "browser",
+  "timezone": "",
   "title": "{{component}}",
-  "uid": "edlzogzas9a80e",
   "version": 1,
   "weekStart": ""
 }
