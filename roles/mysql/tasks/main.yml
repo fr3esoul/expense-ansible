@@ -19,3 +19,19 @@
 
 - name: Set MySQL Password
   ansible.builtin.shell: mysql_secure_installation --set-root-pass "{{ lookup('amazon.aws.aws_ssm','mysql.{{env}}.DB_PASS',region='us-east-1' ) }}"
+
+
+- name: Import Prometheus Role-Node Exporter
+  ansible.builtin.import_role:
+        name: prometheus
+        tasks_from: node-exporter
+
+
+- name: Import Grafana Dashboard
+  ansible.builtin.import_role:
+        name: grafana
+
+- name: Import Prometheus Role- Alert Rules Update
+  ansible.builtin.import_role:
+        name: prometheus
+        tasks_from: alert-rules-update
