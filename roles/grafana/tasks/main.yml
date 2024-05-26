@@ -9,5 +9,5 @@
     grafana_api_key: "{{ lookup('amazon.aws.aws_ssm','grafana.api_key',region='us-east-1' ) }}"
     state: present
     commit_message: Updated by ansible
-    overwrite: true
+    overwrite: true #yes
     path: /tmp/dashboard.json
