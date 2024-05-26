@@ -18,6 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -27,7 +28,23 @@
       },
       "fieldConfig": {
         "defaults": {
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -46,8 +63,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 8,
+        "h": 6,
+        "w": 5,
         "x": 0,
         "y": 0
       },
@@ -76,14 +93,13 @@
             "uid": "cdlzoag45x5ogb"
           },
           "editorMode": "code",
-          "expr": "up{name=\"{{component}}{{env}}\"}",
+          "expr": "up{name=\"{{component}}-{{env}}\"}",
           "instant": false,
         {% raw %}
-            "legendFormat": "{{instance}}",
+        "legendFormat": "{{instance}}",
         {% endraw %}
-
         "range": true,
-          "refId": "A"
+        "refId": "A"
         }
       ],
       "title": "UP",
@@ -107,7 +123,7 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 33,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -115,7 +131,7 @@
               "viz": false
             },
             "insertNulls": false,
-            "lineInterpolation": "linear",
+            "lineInterpolation": "stepAfter",
             "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
@@ -149,9 +165,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 8,
+        "h": 7,
+        "w": 8,
+        "x": 5,
         "y": 0
       },
       "id": 2,
@@ -175,44 +191,32 @@
             "uid": "cdlzoag45x5ogb"
           },
           "editorMode": "code",
-          "expr": "(node_memory_MemFree_bytes{name=\"{{component}}{{env}}\"}  + node_memory_Cached_bytes{name=\"{{component}}{{env}}\"} + node_memory_Buffers_bytes{name=\"{{component}}{{env}}\"}) /node_memory_MemTotal_bytes{name=\"{{component}}{{env}}\"}  * 100",
+          "expr": "(node_memory_MemFree_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Cached_bytes{name=\"{{component}}-{{env}}\"} + node_memory_Buffers_bytes{name=\"{{component}}-{{env}}\"}) / node_memory_MemTotal_bytes{name=\"{{component}}-{{env}}\"} * 100",
           "instant": false,
         {% raw %}
-           "legendFormat": "{{name}}",
+        "legendFormat": "{{name}}",
         {% endraw %}
-
         "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "cdlzoag45x5ogb"
-          },
-          "expr": "",
-          "hide": false,
-          "instant": false,
-          "range": true,
-          "refId": "B"
+        "refId": "A"
         }
       ],
-      "title": "Memory Used % ({{component}})",
+      "title": "Memory Used %",
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 39,
+  "refresh": "",
+  "schemaVersion": 38,
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-10m",
     "to": "now"
   },
-  "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
-  "timezone": "browser",
+  "timezone": "",
   "title": "{{component}}",
-  "version": 0,
+  "version": 1,
   "weekStart": ""
 }
