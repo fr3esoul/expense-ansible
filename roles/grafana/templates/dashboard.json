@@ -211,7 +211,7 @@
     "list": []
   },
   "time": {
-    "from": "now-60m",
+    "from": "now",
     "to": "now"
   },
   "timeRangeUpdatedDuringEditOrView": false,
