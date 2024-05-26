@@ -2,7 +2,7 @@
   "annotations": {
     "list": [
       {
-        "builtIn": 1,
+        "builtIn": 2,
         "datasource": {
           "type": "grafana",
           "uid": "-- Grafana --"
