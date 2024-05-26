@@ -41,4 +41,12 @@ groups:
         annotations:
           summary: Warning | Memory Usage  Alert
 
-      ###
+      - alert: DummyAlert
+        expr: up < 1
+        for: 1m
+        labels:
+          severity: warning
+          component: {{component}}
+          env: {{env}}
+        annotations:
+          summary: Warning | Dummy Alert
