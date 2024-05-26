@@ -62,16 +62,4 @@
 - name: Import Grafana Dashboard
   ansible.builtin.import_role:
     name: grafana
-
-- name: Generate Alert YAML File
-  ansible.builtin.template:
-    src: alert-rules.yml
-    dest: /tmp/{{component}}-{{env}}.yml
-
-##
-- name:  Upload Alert File to S3
-  amazon.aws.s3_object:
-    bucket: kgs-prometheus-alert-rules
-    object: "{{component}}-{{env}}.yml"
-    src: /tmp/{{component}}-{{env}}.yml
-    mode: put
+#
