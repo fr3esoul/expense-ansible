@@ -78,8 +78,11 @@
           "editorMode": "code",
           "expr": "up{name=\"{{component}}{{env}}\"}",
           "instant": false,
-          "legendFormat": "{{instance}}",
-          "range": true,
+        {% raw %}
+            "legendFormat": "{{instance}}",
+        {% endraw %}
+
+        "range": true,
           "refId": "A"
         }
       ],
